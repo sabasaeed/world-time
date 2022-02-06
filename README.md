@@ -21,7 +21,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ## To Download apk
 
-[https://github.com/sabasaeed/world-time/raw/master/app-release.apk] (Click Here)
+[https://github.com/sabasaeed/world-time/raw/release-apk-branch/app-release.apk] (Click Here)
 Download will start automatically
 
 ## Screen Shots
