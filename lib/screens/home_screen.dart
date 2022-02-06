@@ -5,6 +5,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:time_app/services/Utils.dart';
 import 'package:time_app/services/world_time.dart';
 import 'package:time_app/resources/time_zones.dart';
+import 'package:move_to_background/move_to_background.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -54,8 +55,8 @@ class _HomeState extends State<Home> {
     var bgImage = data['isDayTime'] ? 'images/day.jpg' : 'images/night.jpg';
     return WillPopScope(
       onWillPop: () async {
-        print('in back bbutton callback');
-        return exit(0);
+        MoveToBackground.moveTaskToBack();
+        return false;
       },
       child: MaterialApp(
         home: Container(
