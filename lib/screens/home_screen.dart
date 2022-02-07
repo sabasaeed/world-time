@@ -41,7 +41,8 @@ class _HomeState extends State<Home> {
         'time': instance.time,
         'url': instance.url,
         'flag': instance.flag,
-        'isDayTime': instance.isDayTime
+        'isDayTime': instance.isDayTime,
+        'greetingText': instance.greetingText
       };
       selectedCountry = countryItem;
     });
@@ -66,9 +67,21 @@ class _HomeState extends State<Home> {
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 150, 0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
               child: Column(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
+                    child: Text(
+                      data['greetingText'],
+                      style: TextStyle(
+                          fontSize: 36,
+                          color: (data['isDayTime'] as bool)
+                              ? Colors.blue[900]
+                              : Colors.blueGrey[200],
+                          fontFamily: 'Roboto'),
+                    ),
+                  ),
                   ElevatedButton.icon(
                     onPressed: () {
                       showCountryPicker(

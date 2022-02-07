@@ -28,7 +28,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
       'time': instance.time,
       'url': instance.url,
       'flag': instance.flag,
-      'isDayTime': instance.isDayTime
+      'isDayTime': instance.isDayTime,
+      'greetingText': instance.greetingText
     };
 
     Navigator.pushNamed(context, '/home', arguments: data);

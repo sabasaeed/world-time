@@ -1,6 +1,7 @@
 import 'package:http/http.dart';
 import 'dart:convert';
 import 'package:intl/intl.dart';
+import 'package:time_app/services/time_helper.dart';
 
 class WorldTimeService {
   var time;
@@ -9,6 +10,7 @@ class WorldTimeService {
   var isDayTime;
   var url;
   var offset;
+  var greetingText;
 
   WorldTimeService(
       {this.flag,
@@ -16,7 +18,8 @@ class WorldTimeService {
       this.location,
       this.time,
       this.url,
-      this.offset});
+      this.offset,
+      this.greetingText});
 
   Future<void> getTime() async {
     print("in world time...");
@@ -33,6 +36,7 @@ class WorldTimeService {
     print(now);
     time = DateFormat.jm().format(now);
 
-    isDayTime = now.hour > 6 && now.hour < 19 ? true : false;
+    isDayTime = TimeHelper.isDayTime(now);
+    greetingText = "Good " + TimeHelper.getTimeOfDay(now);
   }
 }
