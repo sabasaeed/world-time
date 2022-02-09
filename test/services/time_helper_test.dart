@@ -19,9 +19,9 @@ main() {
     DateTime current = DateTime(2022, 1, 3, 7); //year, month,dat,hour
 
 // Act
-    String TimeOfDay = TimeHelper.getTimeOfDay(current);
+    String timeOfDay = TimeHelper.getTimeOfDay(current);
     //Assert
-    expect(TimeOfDay, "Morning");
+    expect(timeOfDay, "Morning");
   });
 
   test('Test isDayTime should return true', () {

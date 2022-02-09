@@ -27,6 +27,6 @@ Download will start automatically
 ## Screen Shots
 
 <div>
-<img src="images/screen_shot.png" width="250" height="450" style="display-inline-block">
-<img src="images/screen_shot2.png" width="250" height="450" style="display-inline-block">
+<img src="images/screen_shot.jpg" width="250" height="450" style="display-inline-block">
+<img src="images/screen_shot2.jpg" width="250" height="450" style="display-inline-block">
 </div>

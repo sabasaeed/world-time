@@ -1,8 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart';
-import 'package:time_app/services/Utils.dart';
+import 'package:time_app/services/utils.dart';
 import 'package:time_app/services/world_time.dart';
 import 'package:time_app/resources/time_zones.dart';
 import 'package:move_to_background/move_to_background.dart';
@@ -31,8 +29,12 @@ class _HomeState extends State<Home> {
   );
 
   void fetchCurrentTime(location, url, offset, countryItem) async {
-    WorldTimeService instance =
-        WorldTimeService(location: location, url: url, offset: offset);
+    WorldTimeService instance = WorldTimeService(
+      location: location,
+      url: url,
+      offset: offset,
+      isDayTime: true,
+    );
     await instance.getTime();
 
     setState(() {
@@ -40,7 +42,6 @@ class _HomeState extends State<Home> {
         'location': instance.location,
         'time': instance.time,
         'url': instance.url,
-        'flag': instance.flag,
         'isDayTime': instance.isDayTime,
         'greetingText': instance.greetingText
       };

@@ -3,7 +3,7 @@ import 'package:time_app/services/world_time.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
-  LoadingScreen({Key? key}) : super(key: key);
+  const LoadingScreen({Key? key}) : super(key: key);
 
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
@@ -27,7 +27,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
       'location': instance.location,
       'time': instance.time,
       'url': instance.url,
-      'flag': instance.flag,
       'isDayTime': instance.isDayTime,
       'greetingText': instance.greetingText
     };

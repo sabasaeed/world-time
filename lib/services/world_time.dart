@@ -5,7 +5,7 @@ import 'package:time_app/services/time_helper.dart';
 
 class WorldTimeService {
   var time;
-  var flag;
+
   var location;
   var isDayTime;
   var url;
@@ -13,8 +13,7 @@ class WorldTimeService {
   var greetingText;
 
   WorldTimeService(
-      {this.flag,
-      this.isDayTime,
+      {this.isDayTime,
       this.location,
       this.time,
       this.url,
@@ -22,21 +21,26 @@ class WorldTimeService {
       this.greetingText});
 
   Future<void> getTime() async {
-    print("in world time...");
-    print(url);
-    Response response =
-        await get(Uri.parse('http://worldtimeapi.org/api/timezone/$url'));
-    Map data = jsonDecode(response.body);
-    print(data);
+    try {
+      Response response =
+          await get(Uri.parse('http://worldtimeapi.org/api/timezone/$url'));
+      Map data = jsonDecode(response.body);
 
-    var dateTime = data['utc_datetime'];
+      var dateTime = data['utc_datetime'];
 
-    DateTime now = DateTime.parse(dateTime);
-    now = now.add(Duration(seconds: offset));
-    print(now);
-    time = DateFormat.jm().format(now);
+      DateTime now = DateTime.parse(dateTime);
+      now = now.add(Duration(seconds: offset));
 
-    isDayTime = TimeHelper.isDayTime(now);
-    greetingText = "Good " + TimeHelper.getTimeOfDay(now);
+      time = DateFormat.jm().format(now);
+
+      isDayTime = TimeHelper.isDayTime(now);
+      greetingText = "Good " + TimeHelper.getTimeOfDay(now);
+    } catch (e) {
+      print('Caught error : $e');
+      print(e);
+      isDayTime = true;
+      time = '';
+      greetingText = 'Sorry,Could not get Time!';
+    }
   }
 }
